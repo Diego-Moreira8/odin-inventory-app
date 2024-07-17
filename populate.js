@@ -85,31 +85,52 @@ async function productCreate(index, game, platform, launchDate, currentPrice) {
   console.log(`Added product: ${game.title} - ${platform.name}`);
 }
 
-async function productInstanceCreate(
-  index,
-  numberInStock,
-  isAvailable,
-  product
-) {
+async function productInstanceCreate(index, isAvailable, product) {
   const productInstance = new ProductInstance({
-    numberInStock: numberInStock,
+    numberInStock: index,
     isAvailable: isAvailable,
     product: product,
   });
   await productInstance.save();
   productInstances[index] = productInstance;
-  console.log(`Added productInstance: ${numberInStock}`);
+  console.log(`Added productInstance: ${index}`);
 }
 
 async function createProductInstances() {
   console.log("Adding ProductInstances");
-  await Promise.all([productInstanceCreate(0, 1, true, products[0])]);
+  await Promise.all([productInstanceCreate(0, true, products[0])]);
+  await Promise.all([productInstanceCreate(1, true, products[0])]);
+  await Promise.all([productInstanceCreate(2, true, products[0])]);
+  await Promise.all([productInstanceCreate(3, false, products[0])]);
+  await Promise.all([productInstanceCreate(4, true, products[1])]);
+  await Promise.all([productInstanceCreate(5, false, products[1])]);
+  await Promise.all([productInstanceCreate(6, true, products[2])]);
+  await Promise.all([productInstanceCreate(7, true, products[2])]);
+  await Promise.all([productInstanceCreate(8, false, products[3])]);
+  await Promise.all([productInstanceCreate(9, true, products[3])]);
+  await Promise.all([productInstanceCreate(10, true, products[3])]);
+  await Promise.all([productInstanceCreate(11, false, products[4])]);
+  await Promise.all([productInstanceCreate(12, false, products[4])]);
+  await Promise.all([productInstanceCreate(13, true, products[4])]);
+  await Promise.all([productInstanceCreate(14, true, products[4])]);
+  await Promise.all([productInstanceCreate(15, true, products[4])]);
+  await Promise.all([productInstanceCreate(16, true, products[5])]);
+  await Promise.all([productInstanceCreate(17, false, products[5])]);
+  await Promise.all([productInstanceCreate(18, false, products[5])]);
+  await Promise.all([productInstanceCreate(19, true, products[6])]);
+  await Promise.all([productInstanceCreate(20, false, products[6])]);
 }
 
 async function createProducts() {
   console.log("Adding Products");
   await Promise.all([
     productCreate(0, games[0], platforms[0], new Date("2015-05-18"), 25),
+    productCreate(1, games[0], platforms[1], new Date("2022-12-14"), 160),
+    productCreate(2, games[0], platforms[2], new Date("2022-12-14"), 160),
+    productCreate(3, games[0], platforms[3], new Date("2019-10-15"), 180),
+    productCreate(4, games[1], platforms[0], new Date("2020-12-09"), 200),
+    productCreate(5, games[2], platforms[0], new Date("2020-06-18"), 70),
+    productCreate(6, games[3], platforms[0], new Date("2019-12-05"), 300),
   ]);
 }
 
@@ -123,12 +144,35 @@ async function createGames() {
       [genres[0], genres[1], genres[2]],
       "Você é Geralt de Rívia, mercenário matador de monstros. O lugar é um continente devastado pela guerra e infestado de monstros que você pode explorar à vontade. Seu contrato atual? Encontrar Ciri, a Criança da Profecia — uma arma viva que pode alterar a forma do mundo."
     ),
+    gameCreate(
+      1,
+      "Cyberpunk 2077",
+      developers[0],
+      [genres[0], genres[3], genres[4]],
+      "Cyberpunk 2077 é um RPG de ação e aventura em mundo aberto ambientado na megalópole de Night City, onde você é um mercenário cyberpunk envolvido em uma intensa luta pela sobrevivência. Com diversas melhorias e conteúdo adicional gratuito, personalize o seu personagem e o seu estilo de jogo conforme aceita trabalhos, construa uma reputação e desbloqueie melhorias. Seus relacionamentos e suas escolhas moldarão a história e o mundo ao seu redor. Aqui nascem as lendas. Qual será a sua?"
+    ),
+    gameCreate(
+      2,
+      "Outer Wilds",
+      developers[1],
+      [genres[2], genres[3]],
+      "Outer Wilds é um jogo de mistério de mundo aberto aclamado pela crítica que retrata um sistema solar fadado a um loop temporal perpétuo."
+    ),
+    gameCreate(
+      3,
+      "Red Dead Redemption 2",
+      developers[2],
+      [genres[2], genres[4]],
+      "Arthur Morgan e a gangue Van der Linde são bandidos em fuga. Com agentes federais e os melhores caçadores de recompensas no seu encalço, a gangue precisa roubar, assaltar e lutar para sobreviver no impiedoso coração dos Estados Unidos. Conforme divisões internas profundas ameaçam despedaçar a gangue, Arthur deve fazer uma escolha entre os seus próprios ideais e a lealdade à gangue que o criou."
+    ),
   ]);
 }
 
 async function createDevelopers() {
   console.log("Adding Developers");
   await Promise.all([developerCreate(0, "CD Projekt RED")]);
+  await Promise.all([developerCreate(1, "Mobius Digital")]);
+  await Promise.all([developerCreate(2, "Rockstar Games")]);
 }
 
 async function createGenres() {
@@ -137,10 +181,15 @@ async function createGenres() {
     genreCreate(0, "RPG"),
     genreCreate(1, "Fantasia"),
     genreCreate(2, "Aventura"),
+    genreCreate(3, "Ficção Científica"),
+    genreCreate(4, "Ação"),
   ]);
 }
 
 async function createPlatforms() {
   console.log("Adding Platforms");
   await Promise.all([platformCreate(0, "PC")]);
+  await Promise.all([platformCreate(1, "PlayStation 5")]);
+  await Promise.all([platformCreate(2, "X-Box Series X")]);
+  await Promise.all([platformCreate(3, "Nintendo Switch")]);
 }
