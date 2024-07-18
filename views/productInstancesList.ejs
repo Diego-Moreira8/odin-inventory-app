@@ -1,0 +1,17 @@
+<h1>Instâncias</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th title="Número no estoque">#</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% allInstances.forEach(function(instance) { %>
+    <tr>
+      <td><%= instance.numberInStock %></td>
+      <td><%= instance.isAvailable ? "Disponível" : "Vendido" %></td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>

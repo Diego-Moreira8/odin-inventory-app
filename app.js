@@ -1,19 +1,30 @@
-var createError = require("http-errors");
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
-var sassMiddleware = require("node-sass-middleware");
+require("dotenv").config();
+const createError = require("http-errors");
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
+const mongoose = require("mongoose");
+const sassMiddleware = require("node-sass-middleware");
+const ejsLayouts = require("express-ejs-layouts");
 
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
+const indexRouter = require("./routes");
+const inventoryRouter = require("./routes/inventory");
 
-var app = express();
+const app = express();
+
+// mongoose setup
+const mongoDB = process.env.MONGODB_URI;
+main().catch((error) => console.log(error));
+async function main() {
+  await mongoose.connect(mongoDB);
+}
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
+app.use(ejsLayouts);
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -29,7 +40,7 @@ app.use(
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
+app.use("/inventory", inventoryRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
