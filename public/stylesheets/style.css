@@ -1,4 +1,50 @@
+:root {
+  font-size: 16px;
+  font-family: "Quicksand", sans-serif; }
+
+* {
+  margin: 0;
+  padding: 0; }
+
 body {
-  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  background-color: #fcfff4;
+  min-height: 100dvh; }
+  body header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #bbb;
+    padding: 1rem; }
+    body header .logo {
+      font-weight: bold; }
+  body #content {
+    padding: 0 1rem 3rem 1rem; }
+
+h1 {
+  font-size: 2rem;
+  margin: 2rem 0 1.5rem 0; }
+
+h2 {
+  font-size: 1.75rem;
+  margin: 1.75rem 0 1.25rem 0; }
+
+h3 {
+  font-size: 1.5rem;
+  margin: 1.5rem 0 1rem 0; }
+
+h1,
+h2,
+h3 {
+  text-align: center; }
+
+table {
+  border-spacing: 0; }
+  table th {
+    background-color: #c7f910; }
+  table th,
+  table td {
+    border: none;
+    border-bottom: 1px solid #0c0e00;
+    padding: 0.5rem 1rem;
+    text-align: left; }
 
 /*# sourceMappingURL=style.css.map */

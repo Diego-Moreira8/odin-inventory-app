@@ -1,3 +1,76 @@
+$text: #0c0e00;
+$bg: #fcfff4;
+$primary: #c7f910;
+$secondary: #74fb93;
+$accent: #9effd7;
+$ok: #8de203;
+$warning: #f9c610;
+$danger: #ff3c21;
+
+:root {
+  font-size: 16px;
+  font-family: "Quicksand", sans-serif;
+}
+
+// Reset
+* {
+  margin: 0;
+  padding: 0;
+}
+
+// Layout
 body {
-  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: $bg;
+  min-height: 100dvh;
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #bbb;
+    padding: 1rem;
+
+    .logo {
+      font-weight: bold;
+    }
+  }
+
+  #content {
+    padding: 0 1rem 3rem 1rem;
+  }
+}
+
+// Texts
+h1 {
+  font-size: 2rem;
+  margin: 2rem 0 1.5rem 0;
+}
+h2 {
+  font-size: 1.75rem;
+  margin: 1.75rem 0 1.25rem 0;
+}
+h3 {
+  font-size: 1.5rem;
+  margin: 1.5rem 0 1rem 0;
+}
+h1,
+h2,
+h3 {
+  text-align: center;
+}
+
+// Tables
+table {
+  border-spacing: 0;
+
+  th {
+    background-color: $primary;
+  }
+
+  th,
+  td {
+    border: none;
+    border-bottom: 1px solid $text;
+    padding: 0.5rem 1rem;
+    text-align: left;
+  }
 }
