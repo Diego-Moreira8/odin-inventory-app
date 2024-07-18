@@ -12,10 +12,29 @@ body {
   body header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     border-bottom: 2px solid #bbb;
     padding: 1rem; }
     body header .logo {
       font-weight: bold; }
+    body header button.open-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: transparent;
+      width: 2rem;
+      height: 2rem;
+      border: none; }
+      body header button.open-nav .menu-hamburger {
+        display: none; }
+        @media (max-width: 768px) {
+          body header button.open-nav .menu-hamburger {
+            display: block; } }
+      body header button.open-nav .menu-chocolate {
+        display: block; }
+        @media (max-width: 768px) {
+          body header button.open-nav .menu-chocolate {
+            display: none; } }
   body #content {
     padding: 0 1rem 3rem 1rem; }
 
@@ -35,6 +54,9 @@ h1,
 h2,
 h3 {
   text-align: center; }
+
+button {
+  cursor: pointer; }
 
 table {
   border-spacing: 0; }
