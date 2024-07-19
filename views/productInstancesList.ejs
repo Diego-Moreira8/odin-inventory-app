@@ -21,7 +21,10 @@
         <td><%= inst.isAvailable ? "Disponível" : "Vendido" %></td>
         <td><%= inst.product.game.title %></td>
         <td><%= inst.product.game.developer.name %></td>
-        <td><%= inst.product.game.genre.name %></td>
+        <td>
+          <%= inst.product.game.genre.reduce((a, c) => a + (a ? ", " : "") +
+          c.name, ""); %>
+        </td>
         <td><%= inst.product.platform.name %></td>
         <td>
           <!-- Format: DD/MM/AAAA -->
