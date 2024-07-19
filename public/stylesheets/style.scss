@@ -8,6 +8,7 @@ $warning: #f9c610;
 $danger: #ff3c21;
 
 $display-lg: 768px;
+$content-x-padding: 1rem;
 
 :root {
   font-size: 16px;
@@ -63,7 +64,7 @@ body {
   }
 
   #content {
-    padding: 0 1rem 3rem 1rem;
+    padding: 0 $content-x-padding 3rem $content-x-padding;
   }
 }
 
@@ -94,6 +95,11 @@ button {
 // Tables
 table {
   border-spacing: 0;
+  margin: 0 auto;
+
+  tr:hover {
+    background-color: $accent;
+  }
 
   th {
     background-color: $primary;
@@ -101,9 +107,20 @@ table {
 
   th,
   td {
+    max-width: 15rem;
+
     border: none;
     border-bottom: 1px solid $text;
     padding: 0.5rem 1rem;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     text-align: left;
   }
+}
+
+.table-container {
+  max-width: calc(100% - $content-x-padding);
+  overflow-x: scroll;
 }

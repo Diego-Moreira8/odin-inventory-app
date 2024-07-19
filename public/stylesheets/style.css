@@ -59,14 +59,25 @@ button {
   cursor: pointer; }
 
 table {
-  border-spacing: 0; }
+  border-spacing: 0;
+  margin: 0 auto; }
+  table tr:hover {
+    background-color: #9effd7; }
   table th {
     background-color: #c7f910; }
   table th,
   table td {
+    max-width: 15rem;
     border: none;
     border-bottom: 1px solid #0c0e00;
     padding: 0.5rem 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     text-align: left; }
+
+.table-container {
+  max-width: calc(100% - $content-x-padding);
+  overflow-x: scroll; }
 
 /*# sourceMappingURL=style.css.map */
