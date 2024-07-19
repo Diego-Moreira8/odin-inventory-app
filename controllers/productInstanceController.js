@@ -1,5 +1,7 @@
 const asyncHandler = require("express-async-handler");
 
+const formatInstances = require("../public/utils/formatInstances");
+
 const ProductInstance = require("../models/ProductInstance");
 const Product = require("../models/Product");
 const Game = require("../models/Game");
@@ -23,7 +25,7 @@ exports.index = asyncHandler(async (req, res, next) => {
     })
     .exec();
 
-  res.render("productInstancesList", {
-    allInstances: allInstances,
+  res.render("productInstancesTable", {
+    allInstances: formatInstances(allInstances),
   });
 });

@@ -1,0 +1,32 @@
+<h1>Instâncias</h1>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th title="Número no estoque">#</th>
+        <th>Status</th>
+        <th>Título</th>
+        <th>Desenvolvedor</th>
+        <th>Gênero</th>
+        <th>Plataforma</th>
+        <th>Data de lançamento</th>
+        <th>Preço atual</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% allInstances.forEach(function(instance) { %>
+      <tr>
+        <td><%= instance.numberInStock %></td>
+        <td><%= instance.isAvailable %></td>
+        <td><%= instance.title %></td>
+        <td><%= instance.developer %></td>
+        <td><%= instance.genres %></td>
+        <td><%= instance.platform %></td>
+        <td><%= instance.launchDate %></td>
+        <td><%= instance.currentPrice %></td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</div>
