@@ -78,6 +78,6 @@ table {
 
 .table-container {
   max-width: calc(100% - $content-x-padding);
-  overflow-x: scroll; }
+  overflow-x: auto; }
 
 /*# sourceMappingURL=style.css.map */

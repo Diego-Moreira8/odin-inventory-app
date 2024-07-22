@@ -25,7 +25,7 @@ exports.index = asyncHandler(async (req, res, next) => {
     })
     .exec();
 
-  res.render("productInstancesTable", {
+  res.render("instances", {
     allInstances: formatInstances(allInstances),
   });
 });

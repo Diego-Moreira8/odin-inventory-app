@@ -9,7 +9,6 @@ const sassMiddleware = require("node-sass-middleware");
 const ejsLayouts = require("express-ejs-layouts");
 
 const indexRouter = require("./routes");
-const inventoryRouter = require("./routes/inventory");
 
 const app = express();
 
@@ -40,7 +39,6 @@ app.use(
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/inventory", inventoryRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
