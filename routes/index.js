@@ -6,6 +6,7 @@ const product_instance_controller = require("../controllers/productInstanceContr
 const product_controller = require("../controllers/productController");
 const game_controller = require("../controllers/gameController");
 const developer_controller = require("../controllers/developerController");
+const genre_controller = require("../controllers/genreController");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
@@ -23,5 +24,8 @@ router.get("/jogos", game_controller.all_games);
 
 // GET developers
 router.get("/desenvolvedores", developer_controller.all_developers);
+
+// GET genres
+router.get("/generos", genre_controller.all_genres);
 
 module.exports = router;
