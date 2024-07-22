@@ -3,8 +3,6 @@ const asyncHandler = require("express-async-handler");
 const formatInstances = require("../public/utils/formatInstances");
 
 const ProductInstance = require("../models/ProductInstance");
-const Product = require("../models/Product");
-const Game = require("../models/Game");
 const Developer = require("../models/Developer");
 const Genre = require("../models/Genre");
 const Platform = require("../models/Platform");
