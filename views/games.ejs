@@ -1,0 +1,17 @@
+<h1>Jogos</h1>
+
+<ul class="products-list">
+  <% allGames.forEach(function (game) { %>
+  <li>
+    <a href="#">
+      <div class="game-cover-template"></div>
+
+      <div class="product-details">
+        <div class="title"><%= game.title %></div>
+        <div class="details"><%= game.developer %></div>
+        <div class="details"><%= game.genres %></div>
+      </div>
+    </a>
+  </li>
+  <% }) %>
+</ul>

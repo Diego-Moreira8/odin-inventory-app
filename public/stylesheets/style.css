@@ -106,8 +106,7 @@ ul.products-list {
         gap: 0.25rem; }
         ul.products-list li a .product-details .title {
           font-weight: bold; }
-        ul.products-list li a .product-details .platform,
-        ul.products-list li a .product-details .currentPrice {
+        ul.products-list li a .product-details .details {
           font-size: 0.75rem; }
 
 /*# sourceMappingURL=style.css.map */
