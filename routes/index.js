@@ -5,6 +5,7 @@ const router = express.Router();
 const product_instance_controller = require("../controllers/productInstanceController");
 const product_controller = require("../controllers/productController");
 const game_controller = require("../controllers/gameController");
+const developer_controller = require("../controllers/developerController");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
@@ -19,5 +20,8 @@ router.get("/produtos", product_controller.all_products);
 
 // GET games
 router.get("/jogos", game_controller.all_games);
+
+// GET developers
+router.get("/desenvolvedores", developer_controller.all_developers);
 
 module.exports = router;

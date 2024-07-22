@@ -80,6 +80,17 @@ table {
   max-width: calc(100% - $content-x-padding);
   overflow-x: auto; }
 
+ul.main-list {
+  list-style: none; }
+  ul.main-list li a {
+    display: block;
+    text-decoration: none;
+    color: #0c0e00;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #0c0e00; }
+    ul.main-list li a:hover {
+      background-color: #0c0e000f; }
+
 ul.products-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));

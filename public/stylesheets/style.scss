@@ -1,4 +1,5 @@
 $text: #0c0e00;
+$text-light: #0c0e000f;
 $bg: #fcfff4;
 $primary: #c7f910;
 $secondary: #74fb93;
@@ -126,6 +127,24 @@ table {
 }
 
 // Lists
+ul.main-list {
+  list-style: none;
+
+  li {
+    a {
+      display: block;
+      text-decoration: none;
+      color: $text;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid $text;
+
+      &:hover {
+        background-color: $text-light;
+      }
+    }
+  }
+}
+
 ul.products-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
