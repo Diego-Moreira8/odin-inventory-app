@@ -124,3 +124,49 @@ table {
   max-width: calc(100% - $content-x-padding);
   overflow-x: auto;
 }
+
+// Lists
+ul.products-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+
+  li {
+    display: block;
+    background-color: $primary;
+    border-radius: 0.5rem;
+
+    a {
+      $container-padding: 0.5rem;
+
+      display: flex;
+      flex-flow: column;
+      gap: 0.5rem;
+      padding: $container-padding;
+      color: $text;
+      text-decoration: none;
+
+      .game-cover-template {
+        background-color: $text;
+        border-radius: 0.25rem;
+        width: calc(100% - $container-padding);
+        height: 145px;
+      }
+
+      .product-details {
+        display: flex;
+        flex-flow: column;
+        gap: 0.25rem;
+
+        .title {
+          font-weight: bold;
+        }
+
+        .platform,
+        .currentPrice {
+          font-size: 0.75rem;
+        }
+      }
+    }
+  }
+}

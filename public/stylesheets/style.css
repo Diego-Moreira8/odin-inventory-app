@@ -80,4 +80,34 @@ table {
   max-width: calc(100% - $content-x-padding);
   overflow-x: auto; }
 
+ul.products-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem; }
+  ul.products-list li {
+    display: block;
+    background-color: #c7f910;
+    border-radius: 0.5rem; }
+    ul.products-list li a {
+      display: flex;
+      flex-flow: column;
+      gap: 0.5rem;
+      padding: 0.5rem;
+      color: #0c0e00;
+      text-decoration: none; }
+      ul.products-list li a .game-cover-template {
+        background-color: #0c0e00;
+        border-radius: 0.25rem;
+        width: calc(100% - $container-padding);
+        height: 145px; }
+      ul.products-list li a .product-details {
+        display: flex;
+        flex-flow: column;
+        gap: 0.25rem; }
+        ul.products-list li a .product-details .title {
+          font-weight: bold; }
+        ul.products-list li a .product-details .platform,
+        ul.products-list li a .product-details .currentPrice {
+          font-size: 0.75rem; }
+
 /*# sourceMappingURL=style.css.map */

@@ -9,7 +9,7 @@ const Developer = require("../models/Developer");
 const Genre = require("../models/Genre");
 const Platform = require("../models/Platform");
 
-exports.index = asyncHandler(async (req, res, next) => {
+exports.all_instances = asyncHandler(async (req, res, next) => {
   const allInstances = await ProductInstance.find()
     .populate({
       path: "product",
