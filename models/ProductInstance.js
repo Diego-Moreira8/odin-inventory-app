@@ -8,4 +8,8 @@ const ProductInstanceSchema = new Schema({
   product: { type: Schema.Types.ObjectId, ref: "Product", required: true },
 });
 
+ProductInstanceSchema.virtual("url").get(function () {
+  return `/instancia/${this._id}`;
+});
+
 module.exports = mongoose.model("ProductInstance", ProductInstanceSchema);

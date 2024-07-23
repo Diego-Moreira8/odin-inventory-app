@@ -6,4 +6,8 @@ const DeveloperSchema = new Schema({
   name: { type: String, required: true },
 });
 
+DeveloperSchema.virtual("url").get(function () {
+  return `/desenvolvedor/${this._id}`;
+});
+
 module.exports = mongoose.model("Developer", DeveloperSchema);

@@ -9,4 +9,8 @@ const ProductSchema = new Schema({
   currentPrice: { type: Number, required: true },
 });
 
+ProductSchema.virtual("url").get(function () {
+  return `/produto/${this._id}`;
+});
+
 module.exports = mongoose.model("Product", ProductSchema);
