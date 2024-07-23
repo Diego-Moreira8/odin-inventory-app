@@ -10,14 +10,18 @@ body {
   background-color: #fcfff4;
   min-height: 100dvh; }
   body header {
+    position: sticky;
+    top: 0;
+    height: 66px;
+    border-bottom: 2px solid #bbb;
+    padding: 0 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid #bbb;
-    padding: 1rem; }
+    background-color: #fcfff4; }
     body header .logo {
       font-weight: bold; }
-    body header button.open-nav {
+    body header button.toggle-nav {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -25,16 +29,60 @@ body {
       width: 2rem;
       height: 2rem;
       border: none; }
-      body header button.open-nav .menu-hamburger {
+      body header button.toggle-nav .menu-hamburger {
         display: none; }
         @media (max-width: 768px) {
-          body header button.open-nav .menu-hamburger {
+          body header button.toggle-nav .menu-hamburger {
             display: block; } }
-      body header button.open-nav .menu-chocolate {
+      body header button.toggle-nav .menu-chocolate {
         display: block; }
         @media (max-width: 768px) {
-          body header button.open-nav .menu-chocolate {
+          body header button.toggle-nav .menu-chocolate {
             display: none; } }
+  body nav {
+    position: fixed;
+    top: 66px;
+    width: calc(100dvw - 2 * 1rem);
+    height: calc(100dvh - 66px);
+    padding: 0 1rem;
+    background-color: #fcfff4;
+    font-weight: bold;
+    overflow-x: auto;
+    z-index: 10; }
+    @media (min-width: 768px) {
+      body nav {
+        top: calc(66px + 2px);
+        right: 1rem;
+        width: 500px;
+        height: fit-content;
+        border-radius: 0.5rem;
+        box-shadow: -4px 4px 10px 6px rgba(0, 0, 0, 0.26); } }
+    body nav p.nav-title {
+      margin: 2rem 0;
+      font-size: 2rem;
+      text-align: center; }
+    body nav ul {
+      display: grid;
+      gap: 1rem;
+      list-style: none; }
+      @media (min-width: 768px) {
+        body nav ul {
+          grid-template-columns: repeat(2, 1fr); } }
+      body nav ul a {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        background-color: #c7f910;
+        color: #0c0e00;
+        text-decoration: none; }
+        body nav ul a img {
+          height: 42px; }
+    body nav p.app-credits {
+      margin: 3rem 0;
+      font-weight: normal;
+      text-align: center; }
   body #content {
     padding: 0 1rem 3rem 1rem; }
 
@@ -119,5 +167,8 @@ ul.products-list {
           font-weight: bold; }
         ul.products-list li a .product-details .details {
           font-size: 0.75rem; }
+
+.hidden {
+  display: none !important; }
 
 /*# sourceMappingURL=style.css.map */

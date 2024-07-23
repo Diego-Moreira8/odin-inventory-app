@@ -24,21 +24,30 @@ $content-x-padding: 1rem;
 
 // Layout
 body {
+  $header-height: 66px;
+
   background-color: $bg;
   min-height: 100dvh;
 
   header {
+    position: sticky;
+    top: 0;
+
+    height: $header-height;
+    border-bottom: 2px solid #bbb;
+    padding: 0 1rem;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid #bbb;
-    padding: 1rem;
+
+    background-color: $bg;
 
     .logo {
       font-weight: bold;
     }
 
-    button.open-nav {
+    button.toggle-nav {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -61,6 +70,69 @@ body {
           display: none;
         }
       }
+    }
+  }
+
+  nav {
+    position: fixed;
+    top: $header-height;
+
+    width: calc(100dvw - 2 * 1rem); // screen - padding-bottom
+    height: calc(100dvh - 66px); // screen - header height
+
+    padding: 0 1rem;
+    background-color: $bg;
+    font-weight: bold;
+    overflow-x: auto;
+    z-index: 10;
+
+    @media (min-width: $display-lg) {
+      top: calc(66px + 2px); // Header height + border
+      right: 1rem;
+
+      width: 500px;
+      height: fit-content;
+
+      border-radius: 0.5rem;
+
+      box-shadow: -4px 4px 10px 6px rgba(0, 0, 0, 0.26);
+    }
+
+    p.nav-title {
+      margin: 2rem 0;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    ul {
+      display: grid;
+      gap: 1rem;
+      list-style: none;
+
+      @media (min-width: $display-lg) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        background-color: $primary;
+        color: $text;
+        text-decoration: none;
+
+        img {
+          height: 42px;
+        }
+      }
+    }
+
+    p.app-credits {
+      margin: 3rem 0;
+      font-weight: normal;
+      text-align: center;
     }
   }
 
@@ -187,4 +259,9 @@ ul.products-list {
       }
     }
   }
+}
+
+// Hidden elements
+.hidden {
+  display: none !important;
 }

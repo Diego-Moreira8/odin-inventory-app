@@ -19,55 +19,95 @@
   <body>
     <header>
       <div class="logo">GameStore</div>
-      <button type="button" class="open-nav" title="Abrir menu de navegação">
+
+      <button
+        type="button"
+        class="toggle-nav open-nav"
+        title="Abrir menu de navegação"
+      >
         <img src="/images/menu-hamburger.svg" class="menu-hamburger" />
         <img src="/images/menu-chocolate.svg" class="menu-chocolate" />
       </button>
 
-      <nav>
-        <p>Navegação</p>
-
-        <ul>
-          <li>
-            <a href="/instancias">
-              <img src="" />
-              <span>Instancias</span>
-            </a>
-          </li>
-          <li>
-            <a href="/produtos">
-              <img src="" />
-              <span>Produtos</span>
-            </a>
-          </li>
-          <li>
-            <a href="/jogos">
-              <img src="" />
-              <span>Jogos</span>
-            </a>
-          </li>
-          <li>
-            <a href="/desenvolvedores">
-              <img src="" />
-              <span>Desenvolvedores</span>
-            </a>
-          </li>
-          <li>
-            <a href="/generos">
-              <img src="" />
-              <span>Generos</span>
-            </a>
-          </li>
-          <li>
-            <a href="/plataformas">
-              <img src="" />
-              <span>Plataformas</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
+      <button type="button" class="toggle-nav close-nav hidden">
+        <img src="/images/close.svg" class="menu-close" />
+      </button>
     </header>
 
+    <nav class="hidden">
+      <p class="nav-title">Navegação</p>
+
+      <ul>
+        <li>
+          <a href="/instancias">
+            <img src="/images/instance.svg" />
+            <span>Instancias</span>
+          </a>
+        </li>
+        <li>
+          <a href="/produtos">
+            <img src="/images/product.svg" />
+            <span>Produtos</span>
+          </a>
+        </li>
+        <li>
+          <a href="/jogos">
+            <img src="/images/game.svg" />
+            <span>Jogos</span>
+          </a>
+        </li>
+        <li>
+          <a href="/desenvolvedores">
+            <img src="/images/developer.svg" />
+            <span>Desenvolvedores</span>
+          </a>
+        </li>
+        <li>
+          <a href="/generos">
+            <img src="/images/genre.svg" />
+            <span>Generos</span>
+          </a>
+        </li>
+        <li>
+          <a href="/plataformas">
+            <img src="/images/platform.svg" />
+            <span>Plataformas</span>
+          </a>
+        </li>
+      </ul>
+
+      <p class="app-credits">
+        Construído por:
+        <a href="https://diegomoreira.vercel.app/" target="_blank"
+          >Diego Moreira</a
+        >
+        em 2024.
+      </p>
+    </nav>
+
     <div id="content"><%- body %></div>
+
+    <script>
+      const nav = document.querySelector("nav");
+      const openNavBtn = document.querySelector("button.open-nav");
+      const closeNavBtn = document.querySelector("button.close-nav");
+
+      openNavBtn.addEventListener("click", () => {
+        if (nav.classList.contains("hidden")) {
+          window.scrollTo({ top: 0 });
+          nav.classList.remove("hidden");
+          openNavBtn.classList.add("hidden");
+          closeNavBtn.classList.remove("hidden");
+        }
+      });
+
+      closeNavBtn.addEventListener("click", () => {
+        if (!nav.classList.contains("hidden")) {
+          nav.classList.add("hidden");
+          openNavBtn.classList.remove("hidden");
+          closeNavBtn.classList.add("hidden");
+        }
+      });
+    </script>
   </body>
 </html>
