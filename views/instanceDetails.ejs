@@ -1,0 +1,17 @@
+<h1>
+  Instância
+  <br />
+  #<%= instance.numberInStock %>
+</h1>
+
+<h2>Produto nesta instância</h2>
+
+<a href="<%= instance.product.url %>" class="product-horizontal">
+  <div class="game-cover-template"></div>
+
+  <div class="product-details">
+    <div class="title"><%= instance.product.game.title %></div>
+    <div class="details"><%= instance.product.platform.name %></div>
+    <div class="details"><%= instance.product.currentPrice %></div>
+  </div>
+</a>

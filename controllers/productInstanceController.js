@@ -27,3 +27,14 @@ exports.all_instances = asyncHandler(async (req, res, next) => {
     allInstances: formatInstances(allInstances),
   });
 });
+
+exports.instance_details = asyncHandler(async (req, res, next) => {
+  const instance = await ProductInstance.findById(req.params.id)
+    .populate({
+      path: "product",
+      populate: [{ path: "game" }, { path: "platform" }],
+    })
+    .exec();
+
+  res.render("instanceDetails", { instance: instance });
+});

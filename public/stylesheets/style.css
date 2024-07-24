@@ -168,6 +168,31 @@ ul.products-list {
         ul.products-list li a .product-details .details {
           font-size: 0.75rem; }
 
+a.product-horizontal {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0.5rem;
+  background-color: #c7f910;
+  border-radius: 0.5rem;
+  color: #0c0e00;
+  text-decoration: none; }
+  a.product-horizontal .game-cover-template {
+    background-color: #0c0e00;
+    border-radius: 0.25rem;
+    aspect-ratio: 3/4;
+    height: 150px; }
+  a.product-horizontal .product-details {
+    display: flex;
+    flex-flow: column;
+    gap: 0.25rem; }
+    a.product-horizontal .product-details .title {
+      font-weight: bold; }
+    a.product-horizontal .product-details .details {
+      font-size: 0.75rem; }
+
 .hidden {
   display: none !important; }
 

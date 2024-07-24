@@ -14,20 +14,35 @@ router.get("/", function (req, res, next) {
   res.redirect("/instancias");
 });
 
+/// INSTANCES ROUTES ///
+
 // GET instances (inventory home page)
 router.get("/instancias", product_instance_controller.all_instances);
+
+// GET instance by id
+router.get("/instancia/:id", product_instance_controller.instance_details);
+
+/// PRODUCTS ROUTES ///
 
 // GET products
 router.get("/produtos", product_controller.all_products);
 
+/// GAMES ROUTES ///
+
 // GET games
 router.get("/jogos", game_controller.all_games);
+
+/// DEVELOPERS ROUTES ///
 
 // GET developers
 router.get("/desenvolvedores", developer_controller.all_developers);
 
+/// GENRES ROUTES ///
+
 // GET genres
 router.get("/generos", genre_controller.all_genres);
+
+/// PLATFORMS ROUTES ///
 
 // GET platforms
 router.get("/plataformas", platform_controller.all_platforms);

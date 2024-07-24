@@ -6,6 +6,7 @@ const formatPrice = require("./formatPrice");
 function formatInstances(instancesArray) {
   return instancesArray.map((i) => {
     return {
+      url: i.url,
       numberInStock: i.numberInStock,
       isAvailable: i.isAvailable ? "Disponível" : "Vendido",
       title: i.product.game.title,
