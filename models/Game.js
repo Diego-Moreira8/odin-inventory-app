@@ -17,4 +17,8 @@ GameSchema.virtual("url").get(function () {
   return `/jogo/${this._id}`;
 });
 
+GameSchema.virtual("allGenres").get(function () {
+  return this.genre.reduce((a, c) => a + (a ? ", " : "") + c.name, "");
+});
+
 module.exports = mongoose.model("Game", GameSchema);

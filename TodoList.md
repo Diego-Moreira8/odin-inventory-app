@@ -1,1 +1,0 @@
-- Create virtuals to format dates and prices

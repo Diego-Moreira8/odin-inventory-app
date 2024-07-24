@@ -13,4 +13,14 @@ ProductSchema.virtual("url").get(function () {
   return `/produto/${this._id}`;
 });
 
+ProductSchema.virtual("price_BRL").get(function () {
+  return `R$ ${this.currentPrice.toFixed(2)}`.replace(".", ",");
+});
+
+ProductSchema.virtual("launchDateDisplay").get(function () {
+  return this.launchDate.toLocaleDateString("pt-BR", {
+    timeZone: "UTC",
+  });
+});
+
 module.exports = mongoose.model("Product", ProductSchema);
