@@ -1,1 +1,1 @@
-- Create virtuals for URLs
+- Create virtuals to format dates and prices
