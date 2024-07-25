@@ -1,0 +1,18 @@
+<h1><%= platform.name %></h1>
+
+<h2>Produtos para esta plataforma:</h2>
+
+<ul class="products-list">
+  <% allProducts.forEach(function (product) { %>
+  <li>
+    <a href="<%= product.url %>">
+      <div class="game-cover-template"></div>
+
+      <div class="product-details">
+        <p><b><%= product.game.title %></b></p>
+        <p class="small"><%= product.price_BRL %></p>
+      </div>
+    </a>
+  </li>
+  <% }) %>
+</ul>

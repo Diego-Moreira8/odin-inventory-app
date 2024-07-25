@@ -59,4 +59,7 @@ router.get("/genero/:id", genre_controller.genre_page);
 // GET platforms
 router.get("/plataformas", platform_controller.all_platforms);
 
+// Get platform by ID
+router.get("/plataforma/:id", platform_controller.platform_page);
+
 module.exports = router;
