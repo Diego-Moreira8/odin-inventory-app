@@ -36,6 +36,26 @@ a {
 .small {
   font-size: 0.75rem; }
 
+label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding-bottom: 0.5rem; }
+
+input {
+  display: block;
+  margin-bottom: 1.5rem;
+  border: none;
+  border-bottom: 1px solid #0c0e00;
+  padding: 0.5rem 0.125rem;
+  font-size: 1rem;
+  background-color: transparent;
+  width: 100%; }
+  input:focus {
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #0c0e00; }
+
 button,
 a.button-link {
   display: block;
@@ -53,6 +73,10 @@ a.button-link {
   button:hover,
   a.button-link:hover {
     outline: 1px solid #0c0e00; }
+
+button[type="submit"] {
+  background-color: #8de203;
+  border: 1px solid #8de203; }
 
 table {
   border-spacing: 0;
@@ -136,6 +160,11 @@ a.product-horizontal {
 .hidden {
   display: none !important; }
 
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
+
 .game-cover-template {
   background-color: #0c0e00;
   border-radius: 0.25rem;
@@ -162,13 +191,9 @@ a.product-horizontal {
     @media (min-width: 768px) {
       .product-info .product-details {
         text-align: left; } }
-    .product-info .product-details .options {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center; }
-      @media (min-width: 768px) {
-        .product-info .product-details .options {
-          justify-content: start; } }
+    @media (min-width: 768px) {
+      .product-info .product-details {
+        justify-content: start; } }
 
 body {
   background-color: #fcfff4;
