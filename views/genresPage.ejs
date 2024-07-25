@@ -1,0 +1,18 @@
+<h1><%= genre.name %></h1>
+
+<h2>Jogos com este gênero:</h2>
+
+<ul class="products-list">
+  <% allGames.forEach(function (game) { %>
+  <li>
+    <a href="<%= game.url %>">
+      <div class="game-cover-template"></div>
+
+      <div class="product-details">
+        <p><b><%= game.title %></b></p>
+        <p class="small"><%= game.developer.name %></p>
+      </div>
+    </a>
+  </li>
+  <% }) %>
+</ul>

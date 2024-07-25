@@ -51,6 +51,9 @@ router.get("/desenvolvedor/:id", developer_controller.developer_page);
 // GET genres
 router.get("/generos", genre_controller.all_genres);
 
+// GET genre by id
+router.get("/genero/:id", genre_controller.genre_page);
+
 /// PLATFORMS ROUTES ///
 
 // GET platforms
