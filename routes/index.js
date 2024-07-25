@@ -35,6 +35,9 @@ router.get("/produto/:id", product_controller.product_details);
 // GET games
 router.get("/jogos", game_controller.all_games);
 
+// GET game by id
+router.get("/jogo/:id", game_controller.game_details);
+
 /// DEVELOPERS ROUTES ///
 
 // GET developers
