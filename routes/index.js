@@ -62,6 +62,9 @@ router.get("/plataformas", platform_controller.all_platforms);
 // GET create platform
 router.get("/plataforma/criar", platform_controller.create_get);
 
+// POST create platform
+router.post("/plataforma/criar", platform_controller.create_post);
+
 // GET platform by ID
 router.get("/plataforma/:id", platform_controller.platform_page);
 

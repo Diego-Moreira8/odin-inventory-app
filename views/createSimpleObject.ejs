@@ -1,10 +1,11 @@
 <!-- View for creating data that only requires name -->
 
-<h1>Adicionar Desenvolvedor</h1>
+<h1><%= title %></h1>
 
 <form method="post">
   <div>
     <label for="name"><%= label %></label>
+
     <input
       type="text"
       name="name"
@@ -12,6 +13,14 @@
       placeholder="<%= placeholder %>"
       required
     />
+
+    <% if (errors) { %>
+    <ul class="input-errors">
+      <% errors.forEach(error => { %>
+      <li><%= error.msg %></li>
+      <% }) %>
+    </ul>
+    <% } %>
   </div>
 
   <button type="submit">Salvar</button>
