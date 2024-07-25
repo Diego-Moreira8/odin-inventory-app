@@ -1,0 +1,21 @@
+<h1><%= product.game.title %></h1>
+
+<div class="product-info">
+  <div class="game-cover-template"></div>
+
+  <div class="product-details">
+    <p><b>Desenvolvedor: </b><%= product.game.developer.name %></p>
+    <p><b>Gênero(s): </b><%= product.game.allGenres %></p>
+    <p><b>Plataforma: </b><%= product.platform.name %></p>
+    <p><b>Data de lançamento: </b><%= product.launchDateDisplay %></p>
+    <p><b>Preço atual: </b><%= product.price_BRL %></p>
+
+    <a href="#">Ir para a página do jogo</a>
+
+    <div class="options">
+      <a class="button-link" href="#">Criar instância deste produto</a>
+      <a class="button-link" href="#">Editar</a>
+      <a class="button-link" href="#">Apagar</a>
+    </div>
+  </div>
+</div>

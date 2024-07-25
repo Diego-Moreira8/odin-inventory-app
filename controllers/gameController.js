@@ -1,7 +1,5 @@
 const asyncHandler = require("express-async-handler");
 
-const formatGames = require("../public/utils/formatGames");
-
 const Game = require("../models/Game");
 
 exports.all_games = asyncHandler(async (req, res, next) => {
@@ -9,5 +7,5 @@ exports.all_games = asyncHandler(async (req, res, next) => {
     .populate([{ path: "developer" }, { path: "genre" }])
     .exec();
 
-  res.render("games", { allGames: formatGames(allGames) });
+  res.render("games", { allGames: allGames });
 });

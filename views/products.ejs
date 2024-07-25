@@ -3,13 +3,13 @@
 <ul class="products-list">
   <% allProducts.forEach(function (product) { %>
   <li>
-    <a href="#">
+    <a href="<%= product.url %>">
       <div class="game-cover-template"></div>
 
       <div class="product-details">
-        <div class="title"><%= product.title %></div>
-        <div class="details"><%= product.platform %></div>
-        <div class="details"><%= product.currentPrice %></div>
+        <p><b><%= product.game.title %></b></p>
+        <p class="small"><%= product.platform.name %></p>
+        <p class="small"><%= product.price_BRL %></p>
       </div>
     </a>
   </li>
