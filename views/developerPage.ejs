@@ -1,0 +1,18 @@
+<h1><%= developer.name %></h1>
+
+<h2>Jogos da desenvolvedora:</h2>
+
+<ul class="products-list">
+  <% allGames.forEach(function (game) { %>
+  <li>
+    <a href="<%= game.url %>">
+      <div class="game-cover-template"></div>
+
+      <div class="product-details">
+        <p><b><%= game.title %></b></p>
+        <p class="small"><%= game.allGenres %></p>
+      </div>
+    </a>
+  </li>
+  <% }) %>
+</ul>
