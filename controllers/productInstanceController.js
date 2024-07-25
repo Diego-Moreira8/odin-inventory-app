@@ -1,7 +1,5 @@
 const asyncHandler = require("express-async-handler");
 
-const formatInstances = require("../public/utils/formatInstances");
-
 const ProductInstance = require("../models/ProductInstance");
 const Developer = require("../models/Developer");
 const Genre = require("../models/Genre");
@@ -24,7 +22,7 @@ exports.all_instances = asyncHandler(async (req, res, next) => {
     .exec();
 
   res.render("instances", {
-    allInstances: formatInstances(allInstances),
+    allInstances: allInstances,
   });
 });
 

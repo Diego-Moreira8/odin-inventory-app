@@ -8,25 +8,62 @@
         <th>Status</th>
         <th>Título</th>
         <th>Desenvolvedor</th>
-        <th>Gênero</th>
+        <th>Gênero(s)</th>
         <th>Plataforma</th>
         <th>Data de lançamento</th>
         <th>Preço atual</th>
       </tr>
     </thead>
+
     <tbody>
-      <% allInstances.forEach(function(instance) { %>
+      <% allInstances.forEach(function(ins) { %>
       <tr>
         <td>
-          <a href="<%= instance.url %>"><%= instance.numberInStock %></a>
+          <a title="Ir para a página da instância" href="<%= ins.url %>"
+            ><%= ins.numberInStock %></a
+          >
         </td>
-        <td><%= instance.isAvailable %></td>
-        <td><%= instance.title %></td>
-        <td><%= instance.developer %></td>
-        <td><%= instance.genres %></td>
-        <td><%= instance.platform %></td>
-        <td><%= instance.launchDate %></td>
-        <td><%= instance.currentPrice %></td>
+
+        <td><%= ins.isAvailable ? "Disponível" : "Vendido" %></td>
+
+        <td>
+          <a title="Ir para a página do jogo" href="<%= ins.product.game.url %>"
+            ><%= ins.product.game.title %></a
+          >
+        </td>
+
+        <td>
+          <a
+            title="Ir para a página do desenvolvedor"
+            href="<%= ins.product.game.developer.url %>"
+            ><%= ins.product.game.developer.name %></a
+          >
+        </td>
+
+        <td>
+          <% ins.product.game.genre.forEach(function(g, i) { %>
+          <a
+            title="Ir para a página do gênero <%= g.name %>"
+            href="<%= g.url %>"
+          >
+            <span><%= g.name %></span>
+          </a>
+          <% if (i < ins.product.game.genre.length - 1){%>
+          <span>|</span>
+          <% } %> <% }) %>
+        </td>
+
+        <td>
+          <a
+            title="Ir para a página da plataforma"
+            href="<%= ins.product.platform.url %>"
+            ><%= ins.product.platform.name %></a
+          >
+        </td>
+
+        <td><%= ins.product.launchDateDisplay %></td>
+
+        <td><%= ins.product.price_BRL %></td>
       </tr>
       <% }); %>
     </tbody>
