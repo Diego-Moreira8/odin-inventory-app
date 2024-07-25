@@ -17,3 +17,10 @@ exports.platform_page = asyncHandler(async (req, res, next) => {
 
   res.render("platformPage", { platform: platform, allProducts: allProducts });
 });
+
+exports.create_get = asyncHandler(async (req, res, next) => {
+  res.render("createSimpleObject", {
+    label: "Nome do desenvolvedor: *",
+    placeholder: "Rockstar Games",
+  });
+});

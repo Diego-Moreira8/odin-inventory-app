@@ -59,7 +59,10 @@ router.get("/genero/:id", genre_controller.genre_page);
 // GET platforms
 router.get("/plataformas", platform_controller.all_platforms);
 
-// Get platform by ID
+// GET create platform
+router.get("/plataforma/criar", platform_controller.create_get);
+
+// GET platform by ID
 router.get("/plataforma/:id", platform_controller.platform_page);
 
 module.exports = router;
