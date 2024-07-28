@@ -36,25 +36,28 @@ a {
 .small {
   font-size: 0.75rem; }
 
-label {
-  display: block;
-  font-size: 0.75rem;
-  font-weight: bold;
-  padding-bottom: 0.5rem; }
-
-input {
-  display: block;
-  margin-bottom: 1.5rem;
-  border: none;
-  border-bottom: 1px solid #0c0e00;
-  padding: 0.5rem 0.125rem;
-  font-size: 1rem;
-  background-color: transparent;
-  width: 100%; }
-  input:focus {
-    outline: none;
+.form-row {
+  margin-bottom: 2rem; }
+  .form-row label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding-bottom: 0.5rem; }
+  .form-row input {
+    display: block;
     border: none;
-    border-bottom: 2px solid #0c0e00; }
+    border-bottom: 1px solid #0c0e00;
+    padding: 0.5rem 0.125rem;
+    font-size: 1rem;
+    background-color: transparent;
+    width: 100%; }
+    .form-row input:focus {
+      outline: none;
+      border: none;
+      border-bottom: 2px solid #0c0e00; }
+  .form-row .input-errors {
+    list-style: none;
+    color: #ff3c21; }
 
 button,
 a.button-link {
@@ -70,6 +73,14 @@ a.button-link {
   font-weight: bold;
   cursor: pointer;
   text-align: center; }
+  button.floating,
+  a.button-link.floating {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: #8de203;
+    color: #0c0e00;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2); }
   button:hover,
   a.button-link:hover {
     outline: 1px solid #0c0e00; }
@@ -275,6 +286,6 @@ body {
   body #content {
     max-width: 900px;
     margin: 0 auto;
-    padding: 0 1rem 3rem 1rem; }
+    padding: 0 1rem 10rem 1rem; }
 
 /*# sourceMappingURL=style.css.map */

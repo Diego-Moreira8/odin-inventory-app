@@ -51,6 +51,12 @@ router.get("/desenvolvedor/:id", developer_controller.developer_page);
 // GET genres
 router.get("/generos", genre_controller.all_genres);
 
+// GET create genre
+router.get("/genero/criar", genre_controller.create_get);
+
+// POST create genre
+router.post("/genero/criar", genre_controller.create_post);
+
 // GET genre by id
 router.get("/genero/:id", genre_controller.genre_page);
 

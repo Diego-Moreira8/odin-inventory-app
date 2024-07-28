@@ -3,7 +3,7 @@
 <h1><%= title %></h1>
 
 <form method="post">
-  <div>
+  <div class="form-row">
     <label for="name"><%= label %></label>
 
     <input
@@ -15,7 +15,7 @@
     />
 
     <% if (errors) { %>
-    <ul class="input-errors">
+    <ul class="input-errors small">
       <% errors.forEach(error => { %>
       <li><%= error.msg %></li>
       <% }) %>

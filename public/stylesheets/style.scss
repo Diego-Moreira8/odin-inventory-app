@@ -61,27 +61,35 @@ a {
   font-size: 0.75rem;
 }
 
-label {
-  display: block;
-  font-size: 0.75rem;
-  font-weight: bold;
-  padding-bottom: 0.5rem;
-}
+.form-row {
+  margin-bottom: 2rem;
 
-input {
-  display: block;
-  margin-bottom: 1.5rem;
-  border: none;
-  border-bottom: 1px solid $text;
-  padding: 0.5rem 0.125rem;
-  font-size: 1rem;
-  background-color: transparent;
-  width: 100%;
+  label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding-bottom: 0.5rem;
+  }
 
-  &:focus {
-    outline: none;
+  input {
+    display: block;
     border: none;
-    border-bottom: 2px solid $text;
+    border-bottom: 1px solid $text;
+    padding: 0.5rem 0.125rem;
+    font-size: 1rem;
+    background-color: transparent;
+    width: 100%;
+
+    &:focus {
+      outline: none;
+      border: none;
+      border-bottom: 2px solid $text;
+    }
+  }
+
+  .input-errors {
+    list-style: none;
+    color: $danger;
   }
 }
 
@@ -100,6 +108,15 @@ a.button-link {
   font-weight: bold;
   cursor: pointer;
   text-align: center;
+
+  &.floating {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: $ok;
+    color: $text;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
+  }
 
   &:hover {
     outline: 1px solid $text;
@@ -394,6 +411,6 @@ body {
   #content {
     max-width: 900px;
     margin: 0 auto;
-    padding: 0 $content-x-padding 3rem $content-x-padding;
+    padding: 0 $content-x-padding 10rem $content-x-padding;
   }
 }
