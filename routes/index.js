@@ -43,6 +43,12 @@ router.get("/jogo/:id", game_controller.game_details);
 // GET developers
 router.get("/desenvolvedores", developer_controller.all_developers);
 
+// GET developers genre
+router.get("/desenvolvedor/criar", developer_controller.create_get);
+
+// POST developers genre
+router.post("/desenvolvedor/criar", developer_controller.create_post);
+
 // GET developer by id
 router.get("/desenvolvedor/:id", developer_controller.developer_page);
 
