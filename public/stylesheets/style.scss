@@ -71,19 +71,47 @@ a {
     padding-bottom: 0.5rem;
   }
 
-  input {
+  select {
     display: block;
-    border: none;
-    border-bottom: 1px solid $text;
-    padding: 0.5rem 0.125rem;
+    border: 1px solid $text;
+    padding: 0.5rem;
     font-size: 1rem;
     background-color: transparent;
     width: 100%;
 
     &:focus {
       outline: none;
+      border: 2px solid $text;
+    }
+  }
+
+  input,
+  textarea {
+    display: block;
+    padding: 0.5rem 0.125rem;
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: transparent;
+    width: 100%;
+  }
+
+  input {
+    border: none;
+    border-bottom: 1px solid $text;
+
+    &:focus {
+      outline: none;
       border: none;
       border-bottom: 2px solid $text;
+    }
+  }
+
+  textarea {
+    border: 1px solid $text;
+
+    &:focus {
+      outline: none;
+      border: 2px solid $text;
     }
   }
 

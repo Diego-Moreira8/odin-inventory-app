@@ -1,0 +1,40 @@
+<h1>Adicionar Jogo</h1>
+
+<form method="post">
+  <div class="form-row">
+    <label for="title">Título do jogo: *</label>
+    <input type="text" name="title" id="title" maxlength="100" required />
+  </div>
+
+  <div class="form-row">
+    <label for="developer">Desenvolvedor: *</label>
+    <select name="developer" id="developer">
+      <option value="">--Selecione um desenvolvedor--</option>
+      <% allDevelopers.forEach(dev => { %>
+      <option value="<%= dev._id %>"><%= dev.name %></option>
+      <% }) %>
+    </select>
+  </div>
+
+  <div class="form-row">
+    <label for="genre">Gênero: *</label>
+    <select name="genre" id="genre">
+      <option value="">--Selecione um gênero--</option>
+      <% allGenres.forEach(genre => { %>
+      <option value="<%= genre._id %>"><%= genre.name %></option>
+      <% }) %>
+    </select>
+  </div>
+
+  <div class="form-row">
+    <label for="description">Descrição: *</label>
+    <textarea
+      name="description"
+      id="description"
+      rows="10"
+      maxlength="500"
+    ></textarea>
+  </div>
+
+  <div class="options"><button type="submit">Salvar</button></div>
+</form>

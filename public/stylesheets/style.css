@@ -43,18 +43,36 @@ a {
     font-size: 0.75rem;
     font-weight: bold;
     padding-bottom: 0.5rem; }
-  .form-row input {
+  .form-row select {
     display: block;
-    border: none;
-    border-bottom: 1px solid #0c0e00;
-    padding: 0.5rem 0.125rem;
+    border: 1px solid #0c0e00;
+    padding: 0.5rem;
     font-size: 1rem;
     background-color: transparent;
     width: 100%; }
+    .form-row select:focus {
+      outline: none;
+      border: 2px solid #0c0e00; }
+  .form-row input,
+  .form-row textarea {
+    display: block;
+    padding: 0.5rem 0.125rem;
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: transparent;
+    width: 100%; }
+  .form-row input {
+    border: none;
+    border-bottom: 1px solid #0c0e00; }
     .form-row input:focus {
       outline: none;
       border: none;
       border-bottom: 2px solid #0c0e00; }
+  .form-row textarea {
+    border: 1px solid #0c0e00; }
+    .form-row textarea:focus {
+      outline: none;
+      border: 2px solid #0c0e00; }
   .form-row .input-errors {
     list-style: none;
     color: #ff3c21; }

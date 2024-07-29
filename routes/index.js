@@ -35,6 +35,9 @@ router.get("/produto/:id", product_controller.product_details);
 // GET games
 router.get("/jogos", game_controller.all_games);
 
+// GET create game
+router.get("/jogo/criar", game_controller.create_get);
+
 // GET game by id
 router.get("/jogo/:id", game_controller.game_details);
 
@@ -43,10 +46,10 @@ router.get("/jogo/:id", game_controller.game_details);
 // GET developers
 router.get("/desenvolvedores", developer_controller.all_developers);
 
-// GET developers genre
+// GET create developer
 router.get("/desenvolvedor/criar", developer_controller.create_get);
 
-// POST developers genre
+// POST create developer
 router.post("/desenvolvedor/criar", developer_controller.create_post);
 
 // GET developer by id
