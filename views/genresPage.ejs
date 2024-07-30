@@ -2,13 +2,13 @@
 
 <h2>Jogos com este gênero:</h2>
 
-<ul class="products-list">
+<ul class="cards-list">
   <% allGames.forEach(function (game) { %>
   <li>
     <a href="<%= game.url %>">
       <div class="game-cover-template"></div>
 
-      <div class="product-details">
+      <div>
         <p><b><%= game.title %></b></p>
         <p class="small"><%= game.developer.name %></p>
       </div>

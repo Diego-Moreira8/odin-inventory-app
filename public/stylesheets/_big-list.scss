@@ -1,0 +1,20 @@
+ul.big-list {
+  list-style: none;
+  width: fit-content;
+  margin: 0 auto;
+
+  li {
+    a {
+      display: block;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid $text;
+      color: $text;
+      text-align: center;
+      text-decoration: none;
+
+      &:hover {
+        background-color: $text-light;
+      }
+    }
+  }
+}

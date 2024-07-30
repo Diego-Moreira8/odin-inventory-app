@@ -1,0 +1,67 @@
+@mixin hover-effects {
+  transition: transform 100ms ease-in-out;
+
+  &:hover {
+    border: 1px solid $text;
+    transform: scale(1.025);
+  }
+}
+
+ul.cards-list {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, 150px);
+  gap: 1rem;
+
+  li {
+    display: block;
+    background-color: $primary;
+    border: 1px solid $primary;
+    border-radius: 0.5rem;
+
+    @include hover-effects();
+
+    a {
+      display: flex;
+      flex-flow: column;
+      gap: 0.5rem;
+      padding: 0.5rem;
+      color: $text;
+      text-decoration: none;
+
+      p {
+        margin-bottom: 0.25rem;
+      }
+    }
+  }
+}
+
+a.product-horizontal {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  width: fit-content;
+
+  margin: 0 auto;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+
+  background-color: $primary;
+
+  color: $text;
+  text-decoration: none;
+
+  @include hover-effects();
+
+  .game-cover-template {
+    height: 150px;
+    aspect-ratio: 3/4;
+    border-radius: 0.25rem;
+    background-color: $text;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+  }
+}

@@ -1,10 +1,8 @@
 <h1>Gêneros</h1>
 
-<a href="/genero/criar" class="button-link floating">
-  Adicionar gênero
-</a>
+<a href="/genero/criar" class="button-link floating"> Adicionar gênero </a>
 
-<ul class="main-list">
+<ul class="big-list">
   <% allGenres.forEach(function (genre) { %>
   <li>
     <a href="<%= genre.url %>"><%= genre.name %></a>

@@ -1,9 +1,9 @@
 <h1><%= product.game.title %></h1>
 
 <div class="product-info">
-  <div class="game-cover-template"></div>
+  <div class="game-cover-template-lg"></div>
 
-  <div class="product-details">
+  <div class="details">
     <p><b>Plataforma: </b><%= product.platform.name %></p>
     <p><b>Desenvolvedor: </b><%= product.game.developer.name %></p>
     <p><b>Gênero(s): </b><%= product.game.allGenres %></p>
@@ -12,7 +12,7 @@
 
     <a href="<%= product.game.url %>">Ir para a página do jogo</a>
 
-    <div class="options">
+    <div class="buttons-container">
       <a class="button-link" href="#">Criar instância deste produto</a>
       <a class="button-link" href="#">Editar</a>
       <a class="button-link" href="#">Apagar</a>

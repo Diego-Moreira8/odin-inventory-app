@@ -1,12 +1,12 @@
 <h1>Produtos</h1>
 
-<ul class="products-list">
+<ul class="cards-list">
   <% allProducts.forEach(function (product) { %>
   <li>
     <a href="<%= product.url %>">
       <div class="game-cover-template"></div>
 
-      <div class="product-details">
+      <div>
         <p><b><%= product.game.title %></b></p>
         <p class="small"><%= product.platform.name %></p>
         <p class="small"><%= product.price_BRL %></p>

@@ -9,9 +9,9 @@
 <a href="<%= instance.product.url %>" class="product-horizontal">
   <div class="game-cover-template"></div>
 
-  <div class="product-details">
-    <div class="title"><%= instance.product.game.title %></div>
-    <div class="details"><%= instance.product.platform.name %></div>
-    <div class="details"><%= instance.product.currentPrice %></div>
+  <div>
+    <div><b><%= instance.product.game.title %></b></div>
+    <div class="small"><%= instance.product.platform.name %></div>
+    <div class="small"><%= instance.product.price_BRL %></div>
   </div>
 </a>
