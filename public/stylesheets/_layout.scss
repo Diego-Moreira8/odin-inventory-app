@@ -1,5 +1,23 @@
 $header-height: 66px;
 
+@mixin switch-menu-icon {
+  .menu-hamburger {
+    display: none;
+
+    @media (max-width: $display-lg) {
+      display: block;
+    }
+  }
+
+  .menu-chocolate {
+    display: block;
+
+    @media (max-width: $display-lg) {
+      display: none;
+    }
+  }
+}
+
 body {
   background-color: $bg;
   min-height: 100dvh;
@@ -36,86 +54,11 @@ body {
       background-color: transparent;
       border: none;
 
-      .menu-hamburger {
-        display: none;
-        @media (max-width: $display-lg) {
-          display: block;
-        }
-      }
-
-      .menu-chocolate {
-        display: block;
-        @media (max-width: $display-lg) {
-          display: none;
-        }
-      }
-    }
-  }
-
-  nav {
-    position: fixed;
-    top: $header-height;
-
-    width: 100dvw;
-    height: 100dvh;
-
-    padding: 0 1rem;
-
-    background-color: $bg;
-
-    @media (min-width: $display-lg) {
-      top: calc(66px + 2px); // Header height + border
-      right: 1rem;
-
-      width: 500px;
-      height: fit-content;
-
-      border-radius: 0.5rem;
-
-      box-shadow: -4px 4px 10px 6px rgba(0, 0, 0, 0.26);
-    }
-
-    p.nav-title {
-      margin: 2rem 0;
-      font-size: 2rem;
-      text-align: center;
-    }
-
-    ul {
-      display: grid;
-      gap: 1rem;
-      list-style: none;
-
-      @media (min-width: $display-lg) {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      a {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        border-radius: 0.5rem;
-        padding: 1rem;
-        background-color: $primary;
-        color: $text !important;
-        text-decoration: none;
-
-        img {
-          height: 42px;
-        }
-      }
-    }
-
-    p.app-credits {
-      margin: 3rem 0;
-      font-weight: normal;
-      text-align: center;
+      @include switch-menu-icon();
     }
   }
 
   #content {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 $content-x-padding 10rem $content-x-padding;
+    padding: 0 1rem 10rem 1rem;
   }
 }

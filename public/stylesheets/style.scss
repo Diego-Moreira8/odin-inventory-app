@@ -1,10 +1,19 @@
 $display-lg: 768px;
-$content-x-padding: 1rem;
 
-@import "colors";
+@mixin hover-effects {
+  transition: transform 100ms ease-in-out;
+
+  &:hover {
+    border: 1px solid $text;
+    transform: scale(1.025);
+  }
+}
+
 @import "reset";
-@import "layout";
+@import "colors";
 @import "texts";
+@import "layout";
+@import "nav";
 @import "buttons";
 @import "forms";
 @import "tables";
