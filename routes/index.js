@@ -38,6 +38,9 @@ router.get("/jogos", game_controller.all_games);
 // GET create game
 router.get("/jogo/criar", game_controller.create_get);
 
+// POST create game
+router.post("/jogo/criar", game_controller.create_post);
+
 // GET game by id
 router.get("/jogo/:id", game_controller.game_details);
 

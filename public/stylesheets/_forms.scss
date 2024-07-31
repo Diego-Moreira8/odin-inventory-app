@@ -2,16 +2,16 @@
   display: flex;
   flex-flow: column;
   margin-bottom: 2rem;
+
+  label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding-bottom: 0.5rem;
+  }
 }
 
-label {
-  display: block;
-  font-size: 0.75rem;
-  font-weight: bold;
-  padding-bottom: 0.5rem;
-}
-
-input,
+input[type="text"],
 textarea {
   display: block;
   width: 100%;
@@ -57,5 +57,41 @@ select {
   &:focus {
     outline: none;
     border: 2px solid $text;
+  }
+}
+
+fieldset.checkboxes {
+  border: none;
+  margin-bottom: 2rem;
+
+  legend {
+    margin-bottom: 1rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+  }
+  .checkbox-list {
+    column-count: 1;
+
+    @media (min-width: $display-lg) {
+      column-count: 3;
+    }
+
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+
+      margin-bottom: 0.5rem;
+
+      input[type="checkbox"] {
+        width: 1rem;
+        height: 1rem;
+      }
+
+      label {
+        font-size: 1rem;
+        font-weight: normal;
+        padding-left: 0.5rem;
+      }
+    }
   }
 }

@@ -160,14 +160,13 @@ button[type="submit"] {
   display: flex;
   flex-flow: column;
   margin-bottom: 2rem; }
+  .form-row label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding-bottom: 0.5rem; }
 
-label {
-  display: block;
-  font-size: 0.75rem;
-  font-weight: bold;
-  padding-bottom: 0.5rem; }
-
-input,
+input[type="text"],
 textarea {
   display: block;
   width: 100%;
@@ -204,6 +203,30 @@ select {
   select:focus {
     outline: none;
     border: 2px solid #0c0e00; }
+
+fieldset.checkboxes {
+  border: none;
+  margin-bottom: 2rem; }
+  fieldset.checkboxes legend {
+    margin-bottom: 1rem;
+    font-size: 0.75rem;
+    font-weight: bold; }
+  fieldset.checkboxes .checkbox-list {
+    column-count: 1; }
+    @media (min-width: 768px) {
+      fieldset.checkboxes .checkbox-list {
+        column-count: 3; } }
+    fieldset.checkboxes .checkbox-list .checkbox-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem; }
+      fieldset.checkboxes .checkbox-list .checkbox-row input[type="checkbox"] {
+        width: 1rem;
+        height: 1rem; }
+      fieldset.checkboxes .checkbox-list .checkbox-row label {
+        font-size: 1rem;
+        font-weight: normal;
+        padding-left: 0.5rem; }
 
 table {
   border-spacing: 0;

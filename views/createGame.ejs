@@ -3,7 +3,14 @@
 <form method="post">
   <div class="form-row">
     <label for="title">Título do jogo: *</label>
-    <input type="text" name="title" id="title" maxlength="100" required />
+    <input
+      type="text"
+      name="title"
+      id="title"
+      maxlength="100"
+      placeholder="Need for Speed: The Run"
+      required
+    />
   </div>
 
   <div class="form-row">
@@ -16,15 +23,23 @@
     </select>
   </div>
 
-  <div class="form-row">
-    <label for="genre">Gênero: *</label>
-    <select name="genre" id="genre">
-      <option value="">--Selecione um gênero--</option>
+  <fieldset class="checkboxes">
+    <legend>Escolha até 3 gêneros: *</legend>
+
+    <div class="checkbox-list">
       <% allGenres.forEach(genre => { %>
-      <option value="<%= genre._id %>"><%= genre.name %></option>
+      <div class="checkbox-row">
+        <input
+          type="checkbox"
+          name="genre"
+          value="<%= genre._id %>"
+          id="<%= genre._id %>"
+        />
+        <label for="<%= genre._id %>"><%= genre.name %></label>
+      </div>
       <% }) %>
-    </select>
-  </div>
+    </div>
+  </fieldset>
 
   <div class="form-row">
     <label for="description">Descrição: *</label>
@@ -33,8 +48,17 @@
       id="description"
       rows="10"
       maxlength="500"
+      placeholder="Se possível, insira a descrição fornecida pelo desenvolvedor."
     ></textarea>
   </div>
+
+  <% if (errors) { %>
+  <ul class="input-errors small">
+    <% errors.forEach(error => { %>
+    <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
+  <% } %>
 
   <div class="buttons-container"><button type="submit">Salvar</button></div>
 </form>
