@@ -30,6 +30,10 @@ exports.create_get = asyncHandler(async (req, res, next) => {
   res.render("createGame", {
     allDevelopers: allDevelopers,
     allGenres: allGenres,
+    title: "",
+    selectedDev: "",
+    checkedGenres: [],
+    description: "",
     errors: null,
   });
 });
@@ -76,6 +80,10 @@ exports.create_post = [
       res.render("createGame", {
         allDevelopers: allDevelopers,
         allGenres: allGenres,
+        title: req.body.title,
+        selectedDev: req.body.developer,
+        checkedGenres: req.body.genre,
+        description: req.body.description,
         errors: errors.array(),
       });
     } else {
@@ -89,6 +97,10 @@ exports.create_post = [
         res.render("createGame", {
           allDevelopers: allDevelopers,
           allGenres: allGenres,
+          title: req.body.title,
+          selectedDev: req.body.developer,
+          checkedGenres: req.body.genre,
+          description: req.body.description,
           errors: [
             ...errors.array(),
             {

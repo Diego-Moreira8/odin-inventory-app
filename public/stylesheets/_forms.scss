@@ -42,8 +42,14 @@ textarea {
 }
 
 .input-errors {
+  width: fit-content;
+  background-color: $danger;
+  color: $bg;
+  font-weight: bold;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
   list-style: none;
-  color: $danger;
 }
 
 select {

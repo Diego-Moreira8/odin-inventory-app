@@ -190,8 +190,14 @@ textarea {
     border: 2px solid #0c0e00; }
 
 .input-errors {
-  list-style: none;
-  color: #ff3c21; }
+  width: fit-content;
+  background-color: #ff3c21;
+  color: #fcfff4;
+  font-weight: bold;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  list-style: none; }
 
 select {
   display: block;

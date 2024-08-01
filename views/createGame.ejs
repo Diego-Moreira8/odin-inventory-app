@@ -1,6 +1,14 @@
 <h1>Adicionar Jogo</h1>
 
 <form method="post">
+  <% if (errors) { %>
+    <ul class="input-errors small">
+      <% errors.forEach(error => { %>
+        <li><%= error.msg %></li>
+      <% }) %>
+    </ul>
+  <% } %>
+
   <div class="form-row">
     <label for="title">Título do jogo: *</label>
     <input
@@ -9,6 +17,7 @@
       id="title"
       maxlength="100"
       placeholder="Need for Speed: The Run"
+      value="<%= title %>"
       required
     />
   </div>
@@ -16,9 +25,17 @@
   <div class="form-row">
     <label for="developer">Desenvolvedor: *</label>
     <select name="developer" id="developer">
-      <option value="">--Selecione um desenvolvedor--</option>
+      <option value="" <%= selectedDev == "" ? "selected" : "" %>>
+        --Selecione um desenvolvedor--
+      </option>
+
       <% allDevelopers.forEach(dev => { %>
-      <option value="<%= dev._id %>"><%= dev.name %></option>
+        <option 
+          value="<%= dev._id %>" 
+          <%= selectedDev == dev._id ? "selected" : "" %>
+        >
+          <%= dev.name %>
+        </option>
       <% }) %>
     </select>
   </div>
@@ -28,15 +45,17 @@
 
     <div class="checkbox-list">
       <% allGenres.forEach(genre => { %>
-      <div class="checkbox-row">
-        <input
-          type="checkbox"
-          name="genre"
-          value="<%= genre._id %>"
-          id="<%= genre._id %>"
-        />
-        <label for="<%= genre._id %>"><%= genre.name %></label>
-      </div>
+        <div class="checkbox-row">
+          <input
+            type="checkbox"
+            name="genre"
+            value="<%= genre._id %>"
+            id="<%= genre._id %>"
+            <%= checkedGenres.includes(genre._id.toString()) ? "checked" : "" %>
+          />
+
+          <label for="<%= genre._id %>"><%= genre.name %></label>
+        </div>
       <% }) %>
     </div>
   </fieldset>
@@ -49,16 +68,10 @@
       rows="10"
       maxlength="500"
       placeholder="Se possível, insira a descrição fornecida pelo desenvolvedor."
-    ></textarea>
+    >
+<%= description %></textarea
+    >
   </div>
-
-  <% if (errors) { %>
-  <ul class="input-errors small">
-    <% errors.forEach(error => { %>
-    <li><%= error.msg %></li>
-    <% }) %>
-  </ul>
-  <% } %>
 
   <div class="buttons-container"><button type="submit">Salvar</button></div>
 </form>
