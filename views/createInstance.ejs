@@ -1,0 +1,47 @@
+<h1>Criar Instância</h1>
+
+<form method="post">
+  <% if (errors) { %>
+    <ul class="input-errors small">
+      <% errors.forEach(error => { %>
+        <li><%= error.msg %></li>
+      <% }) %>
+    </ul>
+  <% } %>
+
+  <div class="form-row">
+    <label for="is-available">
+      Criar instância de produto com status de: *
+    </label>
+
+    <select name="isAvailable" id="is-available">
+      <option value="available" <%= isAvailable ? "selected" : "" %>>
+        Disponível
+      </option>
+      <option value="sold" <%= !isAvailable ? "selected" : "" %>>
+        Vendido
+      </option>
+    </select>
+  </div>
+
+
+  <div class="form-row">
+    <label for="product">Produto: *</label>
+    <select name="product" id="product">
+      <option value="" <%= selectedProduct == "" ? "selected" : "" %>>
+        --Selecione um produto--
+      </option>
+
+      <% allProducts.forEach(product => { %>
+        <option 
+          value="<%= product._id %>" 
+          <%= selectedProduct == product._id ? "selected" : "" %>
+        >
+          <%= `${product.platform.name} | ${product.game.developer.name} | ${product.game.title}` %>
+        </option>
+      <% }) %>
+    </select>
+  </div>
+
+  <div class="buttons-container"><button type="submit">Salvar</button></div>
+</form>

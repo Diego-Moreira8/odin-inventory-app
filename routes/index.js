@@ -20,6 +20,9 @@ router.get("/", function (req, res, next) {
 // GET instances (inventory home page)
 router.get("/instancias", product_instance_controller.all_instances);
 
+// GET create instance
+router.get("/instancia/criar", product_instance_controller.create_get);
+
 // GET instance by id
 router.get("/instancia/:id", product_instance_controller.instance_details);
 
