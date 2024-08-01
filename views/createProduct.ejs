@@ -1,0 +1,73 @@
+<h1>Adicionar Jogo</h1>
+
+<form method="post">
+  <% if (errors) { %>
+    <ul class="input-errors small">
+      <% errors.forEach(error => { %>
+        <li><%= error.msg %></li>
+      <% }) %>
+    </ul>
+  <% } %>
+
+  <div class="form-row">
+    <label for="game">Jogo: *</label>
+    <select name="game" id="game">
+      <option value="" <%= selectedGame == "" ? "selected" : "" %>>
+        --Selecione um jogo--
+      </option>
+
+      <% allGames.forEach(game => { %>
+        <option 
+          value="<%= game._id %>" 
+          <%= selectedGame == game._id ? "selected" : "" %>
+        >
+          <%= game.title %>
+        </option>
+      <% }) %>
+    </select>
+  </div>
+
+  <div class="form-row">
+    <label for="platform">Plataforma: *</label>
+    <select name="platform" id="platform">
+      <option value="" <%= selectedPlatform == "" ? "selected" : "" %>>
+        --Selecione uma plataforma--
+      </option>
+
+      <% allPlatforms.forEach(platform => { %>
+        <option 
+          value="<%= platform._id %>" 
+          <%= selectedPlatform == platform._id ? "selected" : "" %>
+        >
+          <%= platform.name %>
+        </option>
+      <% }) %>
+    </select>
+  </div>
+
+  <div class="form-row">
+    <label for="launch-date">Data de lançamento: *</label>
+    <input
+      type="date"
+      name="launchDate"
+      id="launch-date"
+      value="<%= launchDate %>"
+      required
+    />
+  </div>
+
+  <div class="form-row">
+    <label for="current-price">Preço atual (em R$): *</label>
+    <input
+      type="number"
+      name="currentPrice"
+      id="current-price"
+      min="0"
+      max="1000000"
+      value="<%= currentPrice %>"
+      required
+    />
+  </div>
+
+  <div class="buttons-container"><button type="submit">Salvar</button></div>
+</form>

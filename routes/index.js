@@ -27,6 +27,9 @@ router.get("/instancia/:id", product_instance_controller.instance_details);
 // GET products
 router.get("/produtos", product_controller.all_products);
 
+// GET create product
+router.get("/produto/criar", product_controller.create_get);
+
 // GET product by id
 router.get("/produto/:id", product_controller.product_details);
 
