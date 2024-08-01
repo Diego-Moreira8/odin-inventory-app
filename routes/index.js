@@ -8,6 +8,7 @@ const game_controller = require("../controllers/gameController");
 const developer_controller = require("../controllers/developerController");
 const genre_controller = require("../controllers/genreController");
 const platform_controller = require("../controllers/platformController");
+const { route } = require("express/lib/application");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
@@ -29,6 +30,9 @@ router.get("/produtos", product_controller.all_products);
 
 // GET create product
 router.get("/produto/criar", product_controller.create_get);
+
+// POST create product
+router.post("/produto/criar", product_controller.create_post);
 
 // GET product by id
 router.get("/produto/:id", product_controller.product_details);
