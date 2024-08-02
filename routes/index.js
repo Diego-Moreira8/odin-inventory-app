@@ -71,10 +71,10 @@ router.post("/desenvolvedor/criar", developer_controller.create_post);
 // GET developer by id
 router.get("/desenvolvedor/:id", developer_controller.developer_page);
 
-// GET edit developer
+// GET update developer
 router.get("/desenvolvedor/:id/editar", developer_controller.update_get);
 
-// POST edit developer
+// POST update developer
 router.post("/desenvolvedor/:id/editar", developer_controller.update_post);
 
 /// GENRES ROUTES ///
@@ -90,6 +90,12 @@ router.post("/genero/criar", genre_controller.create_post);
 
 // GET genre by id
 router.get("/genero/:id", genre_controller.genre_page);
+
+// GET update genre
+router.get("/genero/:id/editar", genre_controller.update_get);
+
+// POST update genre
+router.post("/genero/:id/editar", genre_controller.update_post);
 
 /// PLATFORMS ROUTES ///
 
