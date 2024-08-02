@@ -8,6 +8,7 @@ const PLATFORM_CREATION_PAGE_PARAMS = {
   title: "Adicionar plataforma",
   label: "Nome da plataforma: *",
   placeholder: "X-Box One X",
+  value: "",
   errors: null,
 };
 
@@ -61,5 +62,63 @@ exports.create_post = [
         res.redirect(newPlatform.url);
       }
     }
+  }),
+];
+
+exports.update_get = asyncHandler(async (req, res, next) => {
+  const platform = await Platform.findById(req.params.id);
+
+  if (platform === null) {
+    const error = new Error("Plataforma não encontrada.");
+    error.status = 404;
+    return next(error);
+  }
+
+  res.render("createSimpleObject", {
+    ...PLATFORM_CREATION_PAGE_PARAMS,
+    title: "Editar Plataforma",
+    value: platform.name,
+  });
+});
+
+exports.update_post = [
+  body("name", "Este campo não pode ficar vazio.").trim().notEmpty().escape(),
+
+  asyncHandler(async (req, res, next) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      res.render("createSimpleObject", {
+        ...PLATFORM_CREATION_PAGE_PARAMS,
+        errors: errors.array(),
+      });
+
+      return;
+    }
+
+    const platformExists = await Platform.findOne({
+      name: req.body.name,
+    }).exec();
+
+    if (platformExists) {
+      res.render("createSimpleObject", {
+        ...PLATFORM_CREATION_PAGE_PARAMS,
+        title: "Editar Plataforma",
+        value: req.body.name,
+        errors: [
+          ...errors.array(),
+          { msg: `A plataforma ${req.body.name} já existe.` },
+        ],
+      });
+
+      return;
+    }
+
+    const updatedPlatform = await Platform.findByIdAndUpdate(req.params.id, {
+      name: req.body.name,
+    });
+
+    await updatedPlatform.save();
+    res.redirect(updatedPlatform.url);
   }),
 ];

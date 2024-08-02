@@ -8,6 +8,7 @@ const GENRE_CREATION_PAGE_PARAMS = {
   title: "Adicionar gênero",
   label: "Nome do gênero: *",
   placeholder: "Estratégia",
+  value: "",
   errors: null,
 };
 

@@ -111,4 +111,10 @@ router.post("/plataforma/criar", platform_controller.create_post);
 // GET platform by ID
 router.get("/plataforma/:id", platform_controller.platform_page);
 
+// GET update platform
+router.get("/plataforma/:id/editar", platform_controller.update_get);
+
+// POST update platform
+router.post("/plataforma/:id/editar", platform_controller.update_post);
+
 module.exports = router;
