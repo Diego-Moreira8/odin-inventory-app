@@ -8,6 +8,7 @@ const DEVELOPER_CREATION_PAGE_PARAMS = {
   title: "Adicionar desenvolvedor",
   label: "Nome do desenvolvedor: *",
   placeholder: "Electronic Arts",
+  value: "",
   errors: null,
 };
 
@@ -63,3 +64,19 @@ exports.create_post = [
     }
   }),
 ];
+
+exports.update_get = asyncHandler(async (req, res, next) => {
+  const developer = await Developer.findById(req.params.id);
+
+  if (developer === null) {
+    const error = new Error("Desenvolvedor não encontrado.");
+    error.status = 404;
+    return next(error);
+  }
+
+  res.render("createSimpleObject", {
+    ...DEVELOPER_CREATION_PAGE_PARAMS,
+    title: "Editar Desenvolvedor",
+    value: developer.name,
+  });
+});

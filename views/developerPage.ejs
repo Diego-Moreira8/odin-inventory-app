@@ -1,18 +1,20 @@
 <h1><%= developer.name %></h1>
 
+<a href="/desenvolvedor/<%= developer._id %>/editar">Editar</a>
+
 <h2>Jogos do desenvolvedor:</h2>
 
 <ul class="cards-list">
   <% allGames.forEach(function (game) { %>
-  <li>
-    <a href="<%= game.url %>">
-      <div class="game-cover-template"></div>
+    <li>
+      <a href="<%= game.url %>">
+        <div class="game-cover-template"></div>
 
-      <div>
-        <p><b><%= game.title %></b></p>
-        <p class="small"><%= game.allGenres %></p>
-      </div>
-    </a>
-  </li>
+        <div>
+          <p><b><%= game.title %></b></p>
+          <p class="small"><%= game.allGenres %></p>
+        </div>
+      </a>
+    </li> 
   <% }) %>
 </ul>
