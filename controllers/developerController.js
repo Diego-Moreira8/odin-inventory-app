@@ -80,3 +80,45 @@ exports.update_get = asyncHandler(async (req, res, next) => {
     value: developer.name,
   });
 });
+
+exports.update_post = [
+  body("name", "Este campo não pode ficar vazio.").trim().notEmpty().escape(),
+
+  asyncHandler(async (req, res, next) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      res.render("createSimpleObject", {
+        ...DEVELOPER_CREATION_PAGE_PARAMS,
+        errors: errors.array(),
+      });
+
+      return;
+    }
+
+    const developerExists = await Developer.findOne({
+      name: req.body.name,
+    }).exec();
+
+    if (developerExists) {
+      res.render("createSimpleObject", {
+        ...DEVELOPER_CREATION_PAGE_PARAMS,
+        title: "Editar Desenvolvedor",
+        value: req.body.name,
+        errors: [
+          ...errors.array(),
+          { msg: `O desenvolvedor ${req.body.name} já existe.` },
+        ],
+      });
+
+      return;
+    }
+
+    const updatedDeveloper = await Developer.findByIdAndUpdate(req.params.id, {
+      name: req.body.name,
+    });
+
+    await updatedDeveloper.save();
+    res.redirect(updatedDeveloper.url);
+  }),
+];

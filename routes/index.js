@@ -74,6 +74,9 @@ router.get("/desenvolvedor/:id", developer_controller.developer_page);
 // GET edit developer
 router.get("/desenvolvedor/:id/editar", developer_controller.update_get);
 
+// POST edit developer
+router.post("/desenvolvedor/:id/editar", developer_controller.update_post);
+
 /// GENRES ROUTES ///
 
 // GET genres
